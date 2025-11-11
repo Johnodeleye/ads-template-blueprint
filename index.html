@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusFlow - Pomodoro Timer for Deep Work & Productivity</title>
-    <meta name="description" content="A beautiful, distraction-free Pomodoro timer to boost your focus and productivity. Free online focus timer with customizable work and break intervals.">
-    <meta name="keywords" content="pomodoro timer, focus timer, productivity app, time management, deep work, study timer">
+    <title>FocusFlow - Free Online Pomodoro Timer for Productivity & Deep Work</title>
+    <meta name="description" content="FocusFlow is a free, beautiful Pomodoro timer to help you focus better and boost productivity. Perfect for students, remote workers, and anyone who wants to accomplish more.">
+    <meta name="keywords" content="pomodoro timer, focus timer, productivity app, time management, deep work, study timer, work timer">
     
     <!-- Remember to add ads.txt file to root directory when hosting -->
     
-    <!-- Google Fonts - Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
@@ -73,31 +71,6 @@
             transform: scale(1.05);
         }
         
-        .modal {
-            backdrop-filter: blur(8px);
-            animation: fadeIn 0.3s ease;
-        }
-        
-        .modal-content {
-            animation: slideUp 0.3s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
         .stat-card {
             transition: all 0.3s ease;
         }
@@ -107,17 +80,49 @@
             box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.2);
         }
         
-        .pulse-animate {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        .nav-link {
+            transition: color 0.3s ease;
         }
         
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+        .nav-link:hover {
+            color: #10b981;
         }
     </style>
 </head>
 <body class="bg-gray-900 text-white min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-emerald-400">FocusFlow</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-white font-medium">Timer</a>
+                    <a href="blog.html" class="nav-link text-gray-300">Blog</a>
+                    <a href="about.html" class="nav-link text-gray-300">About</a>
+                    <a href="contact.html" class="nav-link text-gray-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-white font-medium">Timer</a>
+                <a href="blog.html" class="block px-3 py-2 text-gray-300 hover:text-white">Blog</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-white">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Main Container -->
     <div class="flex-grow flex flex-col">
@@ -125,7 +130,7 @@
         <!-- Header -->
         <header class="py-6 px-4 sm:py-8">
             <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400 mb-2">FocusFlow</h1>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-400 mb-2">Focus Timer</h1>
                 <p class="text-gray-400 text-sm sm:text-base">Your companion for deep work and mindful breaks</p>
             </div>
         </header>
@@ -215,204 +220,54 @@
             </div>
         </main>
 
-        <!-- Footer -->
-        <footer class="py-6 px-4 border-t border-gray-800">
-            <div class="max-w-4xl mx-auto text-center">
-                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400 mb-3">
-                    <button onclick="openModal('aboutModal')" class="hover:text-emerald-400 transition-colors">About</button>
-                    <button onclick="openModal('privacyModal')" class="hover:text-emerald-400 transition-colors">Privacy Policy</button>
-                    <button onclick="openModal('termsModal')" class="hover:text-emerald-400 transition-colors">Terms of Service</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-gray-800 mt-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-emerald-400 font-bold text-lg mb-3">FocusFlow</h3>
+                    <p class="text-gray-400 text-sm">A simple, beautiful Pomodoro timer to help you focus and boost productivity.</p>
                 </div>
-                <p class="text-gray-500 text-xs">© 2024 FocusFlow. Built for productivity enthusiasts.</p>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-emerald-400">Timer</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-emerald-400">About</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-emerald-400">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-400 hover:text-emerald-400">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-emerald-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-emerald-400">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-emerald-400">Terms of Service</a></li>
+                    </ul>
+                </div>
             </div>
-        </footer>
-
-    </div>
-
-    <!-- About Modal -->
-    <div id="aboutModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
-        <div class="modal-content bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div class="sticky top-0 bg-gray-800 border-b border-gray-700 px-6 sm:px-8 py-6 flex justify-between items-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-emerald-400">About FocusFlow</h2>
-                <button onclick="closeModal('aboutModal')" class="text-gray-400 hover:text-white text-3xl leading-none">&times;</button>
-            </div>
-            <div class="px-6 sm:px-8 py-6 text-gray-300 space-y-4">
-                <h3 class="text-xl font-semibold text-white mb-3">What is the Pomodoro Technique?</h3>
-                <p class="leading-relaxed">
-                    The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. It uses a timer to break work into focused intervals, traditionally 25 minutes in length, separated by short breaks. Each interval is known as a "pomodoro," from the Italian word for tomato, after the tomato-shaped kitchen timer Cirillo used as a university student.
-                </p>
-                
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">How It Works</h3>
-                <ol class="list-decimal list-inside space-y-2 leading-relaxed">
-                    <li><strong class="text-emerald-400">Choose a task</strong> you want to work on</li>
-                    <li><strong class="text-emerald-400">Set the timer</strong> to 25 minutes (one Pomodoro)</li>
-                    <li><strong class="text-emerald-400">Work on the task</strong> with full focus until the timer rings</li>
-                    <li><strong class="text-emerald-400">Take a short break</strong> (5 minutes) when the timer rings</li>
-                    <li><strong class="text-emerald-400">After 4 Pomodoros</strong>, take a longer break (15 minutes)</li>
-                </ol>
-                
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Benefits of Using FocusFlow</h3>
-                <ul class="list-disc list-inside space-y-2 leading-relaxed">
-                    <li>Improves focus and concentration</li>
-                    <li>Reduces mental fatigue through scheduled breaks</li>
-                    <li>Enhances productivity and time awareness</li>
-                    <li>Helps overcome procrastination</li>
-                    <li>Provides a sense of accomplishment</li>
-                    <li>Minimizes distractions and interruptions</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Why FocusFlow?</h3>
-                <p class="leading-relaxed">
-                    FocusFlow is designed to be simple, distraction-free, and effective. No account required, no subscriptions, no clutter. Just you, your work, and the timer. We believe productivity tools should empower you, not overwhelm you. Our clean interface and intuitive design help you stay in flow state longer.
-                </p>
-
-                <p class="leading-relaxed mt-6">
-                    Whether you're studying, writing, coding, or working on any focused task, FocusFlow helps you build better work habits and achieve more in less time.
-                </p>
+            <div class="border-t border-gray-800 pt-6 text-center">
+                <p class="text-gray-500 text-sm">© 2024 FocusFlow. All rights reserved. Built for productivity enthusiasts.</p>
             </div>
         </div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div id="privacyModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
-        <div class="modal-content bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div class="sticky top-0 bg-gray-800 border-b border-gray-700 px-6 sm:px-8 py-6 flex justify-between items-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-emerald-400">Privacy Policy</h2>
-                <button onclick="closeModal('privacyModal')" class="text-gray-400 hover:text-white text-3xl leading-none">&times;</button>
-            </div>
-            <div class="px-6 sm:px-8 py-6 text-gray-300 space-y-4">
-                <p class="text-sm text-gray-400">Last updated: January 2024</p>
-                
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Your Privacy Matters</h3>
-                <p class="leading-relaxed">
-                    At FocusFlow, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you use our Pomodoro timer application.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Information We Collect</h3>
-                <p class="leading-relaxed">
-                    <strong class="text-emerald-400">Local Storage Data:</strong> FocusFlow stores your session statistics (focus count, total minutes, streak) locally in your browser using localStorage. This data never leaves your device and is only used to display your progress.
-                </p>
-                <p class="leading-relaxed">
-                    <strong class="text-emerald-400">No Personal Information:</strong> We do not collect, store, or transmit any personally identifiable information. No accounts, no emails, no tracking.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Third-Party Services</h3>
-                <p class="leading-relaxed">
-                    <strong class="text-emerald-400">Google Fonts:</strong> We use Google Fonts to display the Outfit typeface. Google may collect usage data as outlined in their privacy policy.
-                </p>
-                <p class="leading-relaxed">
-                    <strong class="text-emerald-400">Advertising:</strong> We may display advertisements through Google AdSense or similar services. These services may use cookies to display relevant ads. You can control cookie preferences through your browser settings.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Cookies</h3>
-                <p class="leading-relaxed">
-                    FocusFlow itself does not use cookies. However, third-party advertising partners may use cookies to serve ads based on your browsing activity. You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" class="text-emerald-400 hover:underline" target="_blank">Google's Ad Settings</a>.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Data Security</h3>
-                <p class="leading-relaxed">
-                    Since all your data is stored locally on your device, you have full control over it. Clearing your browser data will remove all FocusFlow statistics. We do not have access to your data.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Children's Privacy</h3>
-                <p class="leading-relaxed">
-                    FocusFlow does not knowingly collect any information from children under 13. Our service is available to users of all ages, but we do not target children specifically.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Changes to This Policy</h3>
-                <p class="leading-relaxed">
-                    We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated revision date.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Contact Us</h3>
-                <p class="leading-relaxed">
-                    If you have any questions about this Privacy Policy, please feel free to reach out through our contact information.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Terms of Service Modal -->
-    <div id="termsModal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4">
-        <div class="modal-content bg-gray-800 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-            <div class="sticky top-0 bg-gray-800 border-b border-gray-700 px-6 sm:px-8 py-6 flex justify-between items-center">
-                <h2 class="text-2xl sm:text-3xl font-bold text-emerald-400">Terms of Service</h2>
-                <button onclick="closeModal('termsModal')" class="text-gray-400 hover:text-white text-3xl leading-none">&times;</button>
-            </div>
-            <div class="px-6 sm:px-8 py-6 text-gray-300 space-y-4">
-                <p class="text-sm text-gray-400">Last updated: January 2024</p>
-                
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Agreement to Terms</h3>
-                <p class="leading-relaxed">
-                    By accessing and using FocusFlow, you accept and agree to be bound by the terms and conditions of this agreement. If you do not agree to these terms, please do not use our service.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Use License</h3>
-                <p class="leading-relaxed">
-                    FocusFlow grants you a personal, non-exclusive, non-transferable license to use our Pomodoro timer application for personal or commercial productivity purposes. You may use FocusFlow free of charge.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Acceptable Use</h3>
-                <p class="leading-relaxed">You agree to use FocusFlow only for lawful purposes. You agree not to:</p>
-                <ul class="list-disc list-inside space-y-2 leading-relaxed ml-4">
-                    <li>Attempt to interfere with, compromise, or disrupt the service</li>
-                    <li>Use automated systems to access the service in a manner that sends more requests than a human can reasonably produce</li>
-                    <li>Attempt to reverse engineer or extract the source code of the application</li>
-                    <li>Use the service in any way that violates applicable laws or regulations</li>
-                </ul>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Disclaimer of Warranties</h3>
-                <p class="leading-relaxed">
-                    FocusFlow is provided "as is" and "as available" without any warranties of any kind, either express or implied. We do not guarantee that the service will be uninterrupted, secure, or error-free.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Limitation of Liability</h3>
-                <p class="leading-relaxed">
-                    In no event shall FocusFlow, its developers, or affiliates be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or relating to your use of the service.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Service Availability</h3>
-                <p class="leading-relaxed">
-                    We strive to keep FocusFlow available at all times, but we do not guarantee uninterrupted access. We reserve the right to modify, suspend, or discontinue the service at any time without prior notice.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Intellectual Property</h3>
-                <p class="leading-relaxed">
-                    The design, layout, and content of FocusFlow are protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works without explicit permission.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Third-Party Services</h3>
-                <p class="leading-relaxed">
-                    FocusFlow may contain links to third-party websites or services. We are not responsible for the content, privacy policies, or practices of any third-party sites.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Advertising</h3>
-                <p class="leading-relaxed">
-                    FocusFlow may display third-party advertisements. We do not control the content of these advertisements and are not responsible for the products or services advertised.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Changes to Terms</h3>
-                <p class="leading-relaxed">
-                    We reserve the right to modify these Terms of Service at any time. Continued use of the service after changes constitutes acceptance of the modified terms.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Governing Law</h3>
-                <p class="leading-relaxed">
-                    These terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law provisions.
-                </p>
-
-                <h3 class="text-xl font-semibold text-white mb-3 mt-6">Contact Information</h3>
-                <p class="leading-relaxed">
-                    If you have any questions about these Terms of Service, please contact us through our official channels.
-                </p>
-            </div>
-        </div>
-    </div>
+    </footer>
 
     <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
         // Timer State
         let currentMode = 'focus';
-        let timeLeft = 25 * 60; // seconds
+        let timeLeft = 25 * 60;
         let totalTime = 25 * 60;
         let timerInterval = null;
         let isRunning = false;
@@ -424,14 +279,12 @@
             currentStreak: 0
         };
 
-        // Timer durations in seconds
         const durations = {
             focus: 25 * 60,
             shortBreak: 5 * 60,
             longBreak: 15 * 60
         };
 
-        // Motivational messages
         const messages = {
             focus: [
                 "Focus is the gateway to productivity.",
@@ -463,7 +316,6 @@
             ]
         };
 
-        // Load stats from localStorage
         function loadStats() {
             const saved = localStorage.getItem('focusFlowStats');
             if (saved) {
@@ -472,19 +324,16 @@
             }
         }
 
-        // Save stats to localStorage
         function saveStats() {
             localStorage.setItem('focusFlowStats', JSON.stringify(stats));
         }
 
-        // Update stats display
         function updateStatsDisplay() {
             document.getElementById('focusCount').textContent = stats.focusCount;
             document.getElementById('totalMinutes').textContent = stats.totalMinutes;
             document.getElementById('currentStreak').textContent = stats.currentStreak;
         }
 
-        // Switch timer mode
         function switchMode(mode) {
             if (isRunning) {
                 pauseTimer();
@@ -494,7 +343,6 @@
             timeLeft = durations[mode];
             totalTime = durations[mode];
             
-            // Update UI
             updateDisplay();
             updateModeButtons();
             updateProgressCircle();
@@ -506,7 +354,6 @@
                 'Take a long break';
         }
 
-        // Update mode buttons styling
         function updateModeButtons() {
             const buttons = {
                 focus: document.getElementById('focusBtn'),
@@ -523,7 +370,6 @@
             });
         }
 
-        // Toggle timer start/pause
         function toggleTimer() {
             if (isRunning) {
                 pauseTimer();
@@ -532,7 +378,6 @@
             }
         }
 
-        // Start timer
         function startTimer() {
             isRunning = true;
             document.getElementById('startPauseBtn').textContent = 'Pause';
@@ -550,7 +395,6 @@
             }, 1000);
         }
 
-        // Pause timer
         function pauseTimer() {
             isRunning = false;
             clearInterval(timerInterval);
@@ -558,7 +402,6 @@
             document.getElementById('sessionLabel').textContent = 'Paused';
         }
 
-        // Reset timer
         function resetTimer() {
             pauseTimer();
             timeLeft = durations[currentMode];
@@ -572,7 +415,6 @@
                 'Take a long break';
         }
 
-        // Update timer display
         function updateDisplay() {
             const minutes = Math.floor(timeLeft / 60);
             const seconds = timeLeft % 60;
@@ -580,7 +422,6 @@
                 `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
         }
 
-        // Update progress circle
         function updateProgressCircle() {
             const circle = document.getElementById('progressCircle');
             const radius = 130;
@@ -591,12 +432,10 @@
             circle.style.strokeDashoffset = offset;
         }
 
-        // Complete session
         function completeSession() {
             pauseTimer();
             playCompletionSound();
             
-            // Update statistics
             if (currentMode === 'focus') {
                 stats.focusCount++;
                 stats.totalMinutes += 25;
@@ -604,10 +443,8 @@
                 saveStats();
                 updateStatsDisplay();
                 
-                // Show completion message
                 setRandomMessage('completed');
                 
-                // Auto-switch to break
                 setTimeout(() => {
                     if (stats.focusCount % 4 === 0) {
                         switchMode('longBreak');
@@ -616,18 +453,15 @@
                     }
                 }, 3000);
             } else {
-                // After break, go back to focus
                 setRandomMessage('focus');
                 setTimeout(() => {
                     switchMode('focus');
                 }, 3000);
             }
             
-            // Show notification
             showNotification();
         }
 
-        // Play completion sound
         function playCompletionSound() {
             const audioContext = new (window.AudioContext || window.webkitAudioContext)();
             const oscillator = audioContext.createOscillator();
@@ -646,7 +480,6 @@
             oscillator.stop(audioContext.currentTime + 0.5);
         }
 
-        // Show browser notification
         function showNotification() {
             if ('Notification' in window && Notification.permission === 'granted') {
                 new Notification('FocusFlow Timer Complete!', {
@@ -656,70 +489,35 @@
             }
         }
 
-        // Request notification permission
         function requestNotificationPermission() {
             if ('Notification' in window && Notification.permission === 'default') {
                 Notification.requestPermission();
             }
         }
 
-        // Set motivational message
         function setMotivationalMessage(mode) {
             const messageArray = messages[mode];
             const randomMessage = messageArray[Math.floor(Math.random() * messageArray.length)];
             document.getElementById('motivationalText').textContent = `"${randomMessage}"`;
         }
 
-        // Set random message from category
         function setRandomMessage(category) {
             const messageArray = messages[category];
             const randomMessage = messageArray[Math.floor(Math.random() * messageArray.length)];
             document.getElementById('motivationalText').textContent = `"${randomMessage}"`;
         }
 
-        // Modal functions
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modal when clicking outside
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeModal(modal.id);
-                }
-            });
-        });
-
-        // Keyboard shortcuts
         document.addEventListener('keydown', (e) => {
-            // Space to start/pause
             if (e.code === 'Space' && e.target === document.body) {
                 e.preventDefault();
                 toggleTimer();
             }
-            // R to reset
             if (e.code === 'KeyR' && e.target === document.body) {
                 e.preventDefault();
                 resetTimer();
             }
-            // Escape to close modals
-            if (e.code === 'Escape') {
-                document.querySelectorAll('.modal').forEach(modal => {
-                    if (!modal.classList.contains('hidden')) {
-                        closeModal(modal.id);
-                    }
-                });
-            }
         });
 
-        // Initialize app
         window.addEventListener('load', () => {
             loadStats();
             updateDisplay();
@@ -729,7 +527,6 @@
             setMotivationalMessage('focus');
         });
 
-        // Save state before page unload
         window.addEventListener('beforeunload', () => {
             saveStats();
         });

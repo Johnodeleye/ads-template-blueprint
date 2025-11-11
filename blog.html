@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productivity Blog - FocusFlow</title>
+    <meta name="description" content="Discover productivity tips, time management strategies, and focus techniques to accomplish more and reduce stress.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'outfit': ['Outfit', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #10b981;
+        }
+        
+        .blog-card {
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-emerald-400">FocusFlow</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-300">Timer</a>
+                    <a href="blog.html" class="nav-link text-white font-medium">Blog</a>
+                    <a href="about.html" class="nav-link text-gray-300">About</a>
+                    <a href="contact.html" class="nav-link text-gray-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-300 hover:text-white">Timer</a>
+                <a href="blog.html" class="block px-3 py-2 text-white font-medium">Blog</a>
+                <a href="about.html" class="block px-3 py-2 text-gray-300 hover:text-white">About</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-emerald-400 mb-6">Productivity Blog</h1>
+            <p class="text-xl text-gray-300 leading-relaxed">Tips, strategies, and insights to help you focus better and achieve more.</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <main class="max-w-6xl mx-auto px-4 pb-16">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Blog Post 1 -->
+            <article class="blog-card bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
+                <div class="h-48 bg-gradient-to-br from-emerald-500 to-emerald-700 flex items-center justify-center">
+                    <span class="text-6xl">🍅</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/20 px-3 py-1 rounded-full">Technique</span>
+                        <span class="text-xs text-gray-400">8 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">The Ultimate Guide to the Pomodoro Technique</h2>
+                    <p class="text-gray-400 mb-4 leading-relaxed">Master the famous time management method and transform how you work. Learn the science, benefits, and practical tips.</p>
+                    <a href="blog-pomodoro-guide.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-2">
+                        Read More 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Post 2 -->
+            <article class="blog-card bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
+                <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
+                    <span class="text-6xl">💼</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/20 px-3 py-1 rounded-full">Remote Work</span>
+                        <span class="text-xs text-gray-400">6 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">10 Productivity Tips for Remote Workers</h2>
+                    <p class="text-gray-400 mb-4 leading-relaxed">Working from home? Discover proven strategies to stay productive, avoid distractions, and maintain work-life balance.</p>
+                    <a href="blog-productivity-tips.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-2">
+                        Read More 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Post 3 -->
+            <article class="blog-card bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
+                <div class="h-48 bg-gradient-to-br from-purple-500 to-purple-700 flex items-center justify-center">
+                    <span class="text-6xl">🎯</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/20 px-3 py-1 rounded-full">Focus</span>
+                        <span class="text-xs text-gray-400">7 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">How to Overcome Procrastination Using Time Blocking</h2>
+                    <p class="text-gray-400 mb-4 leading-relaxed">Stop putting things off. Learn how time blocking can help you beat procrastination and get more done every day.</p>
+                    <a href="blog-overcome-procrastination.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-2">
+                        Read More 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Post 4 -->
+            <article class="blog-card bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
+                <div class="h-48 bg-gradient-to-br from-orange-500 to-orange-700 flex items-center justify-center">
+                    <span class="text-6xl">🧠</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/20 px-3 py-1 rounded-full">Deep Work</span>
+                        <span class="text-xs text-gray-400">9 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">Deep Work: How to Focus in a Distracted World</h2>
+                    <p class="text-gray-400 mb-4 leading-relaxed">Unlock your ability to concentrate deeply and produce high-quality work in less time with these proven techniques.</p>
+                    <a href="blog-deep-work.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-2">
+                        Read More 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Post 5 -->
+            <article class="blog-card bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
+                <div class="h-48 bg-gradient-to-br from-pink-500 to-pink-700 flex items-center justify-center">
+                    <span class="text-6xl">📚</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/20 px-3 py-1 rounded-full">Students</span>
+                        <span class="text-xs text-gray-400">7 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">Study Techniques That Actually Work</h2>
+                    <p class="text-gray-400 mb-4 leading-relaxed">Science-backed study methods to help you learn faster, retain more, and ace your exams without burnout.</p>
+                    <a href="blog-study-techniques.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-2">
+                        Read More 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Blog Post 6 -->
+            <article class="blog-card bg-gray-800 rounded-2xl overflow-hidden shadow-xl">
+                <div class="h-48 bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center">
+                    <span class="text-6xl">⚡</span>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-xs font-medium text-emerald-400 bg-emerald-500/20 px-3 py-1 rounded-full">Habits</span>
+                        <span class="text-xs text-gray-400">10 min read</span>
+                    </div>
+                    <h2 class="text-2xl font-bold text-white mb-3">Building Better Work Habits: A Complete Guide</h2>
+                    <p class="text-gray-400 mb-4 leading-relaxed">Transform your productivity by building sustainable habits. Learn the science of habit formation and practical implementation.</p>
+                    <a href="blog-work-habits.html" class="text-emerald-400 hover:text-emerald-300 font-medium inline-flex items-center gap-2">
+                        Read More 
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 border-t border-gray-800 mt-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-emerald-400 font-bold text-lg mb-3">FocusFlow</h3>
+                    <p class="text-gray-400 text-sm">A simple, beautiful Pomodoro timer to help you focus and boost productivity.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="text-gray-400 hover:text-emerald-400">Timer</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-emerald-400">About</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-emerald-400">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Company</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="about.html" class="text-gray-400 hover:text-emerald-400">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-emerald-400">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-3">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-emerald-400">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-emerald-400">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-6 text-center">
+                <p class="text-gray-500 text-sm">© 2024 FocusFlow. All rights reserved. Built for productivity enthusiasts.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
